@@ -1,47 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Responsive Website Landing Page - With Background Video Slider | Travel </title>
+    <title>Responsive Website Landing Page - With Background Video Slider |
+        Travel </title>
 </head>
+
 <body>
-   <header>
-    <a href="#" class="brand">Travel</a>
-     <div class="menu-btn"></div>
+    <header>
+        <a href="#" class="brand">Travel</a>
+        <div class="menu-btn"></div>
 
-    <div class="navigation">
-        <div class="navigation-items">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Explore</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Explore</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
         </div>
-    </div>
-   </header> 
-   <section class="home">
-    <div class="content">
-        <h1>Wonderful.<br><span>Island</span></h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus voluptas expedita ratione placeat earum esse necessitatibus quos minus nesciunt culpa eveniet, iste doloremque amet! Suscipit ex impedit dignissimos voluptates aut!</p>
-        <a href="#">Read More</a>
-    </div>
-       <div class="media-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-       </div>
-   </section>
-   <script type="text/javascript">
- const menubtn = document.querySelector(".menu-btn");
- const navigation = document.querySelector(".navigation");
- menubtn.addEventListener("click",()=>{
-    menubtn.classList.toggle("active")
-    navigation.classList.toggle("active")
- });
+    </header>
+    <section class="home">
+        <video class="video-slide active" src="3094026-uhd_3840_2160_30fps.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="3135807-hd_1920_1080_24fps.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="5379995-uhd_3840_2160_24fps.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="2099568-hd_1920_1080_30fps.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="1623864-hd_1920_1080_25fps.mp4" autoplay muted loop></video>
+        
+        <div class="content active">
+            <h1>Wonderful.<br><span>Island</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Natus voluptas expedita ratione placeat earum esse
+                necessitatibus quos minus nesciunt culpa eveniet, iste
+                doloremque amet! Suscipit ex impedit dignissimos voluptates
+                aut!</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Camping.<br><span>Enjoy</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Natus voluptas expedita ratione placeat earum esse
+                necessitatibus quos minus nesciunt culpa eveniet, iste
+                doloremque amet! Suscipit ex impedit dignissimos voluptates
+                aut!</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Advantures.<br><span>Off Road</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Natus voluptas expedita ratione placeat earum esse
+                necessitatibus quos minus nesciunt culpa eveniet, iste
+                doloremque amet! Suscipit ex impedit dignissimos voluptates
+                aut!</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Road Trip.<br><span>Together</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Natus voluptas expedita ratione placeat earum esse
+                necessitatibus quos minus nesciunt culpa eveniet, iste
+                doloremque amet! Suscipit ex impedit dignissimos voluptates
+                aut!</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Feel Nature.<br><span>Rleax</span></h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Natus voluptas expedita ratione placeat earum esse
+                necessitatibus quos minus nesciunt culpa eveniet, iste
+                doloremque amet! Suscipit ex impedit dignissimos voluptates
+                aut!</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class= "nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        const menubtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        menubtn.addEventListener("click", () => {
+            menubtn.classList.toggle("active")
+            navigation.classList.toggle("active")
+        });
+        // for video
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
 
-   </script>
+
+        var sliderNav = function (manual) {
+            btns.forEach((btn) => {
+                btn.classList.remove("active")
+            })
+            slides.forEach((slide) => {
+                slide.classList.remove("active")
+            })
+            contents.forEach((content) => {
+                content.classList.remove("active")
+            })
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            })
+        });
+    </script>
 </body>
+
 </html>
